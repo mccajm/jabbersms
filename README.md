@@ -4,7 +4,7 @@ JabberSMS is an system for sending SMS via XMPP and email to and from a Bulk SMS
 
 I wrote JabberSMS because I travel frequently, and need my numbers to work regardless of where I am. I have US and UK VOIP numbers, meaning I can be contacted as long as I have a data connection. Audio gets transcoded via Kamailio and rtpengine from G711 to opus to handle packet loss, and I use a Wireguard VPN for NAT Traversal. This takes care of mobile phone audio.
 
-JabberSMS adds SMS functionality: inbound SMS are delivered to my email and my phone via XMPP (I use ejabberd as the server, although prosody would work) and an XMPP client. To send outbound SMS, I can reply to inbound messages directly, or send XMPP or email to <phone number>@sms.example.com, where example.com is my domain.
+JabberSMS adds SMS functionality: inbound SMS are delivered to my email and my phone via XMPP (I use ejabberd as the server, although prosody would work) and an XMPP client. To send outbound SMS, I can reply to inbound messages directly, or send XMPP or email to number@sms.example.com, where example.com is my domain.
 
 Jabber SMS is written in Asynchronous Python and has been tested in Python 3.8.10 on Ubuntu 22.04 LTS. It has a modular design, and additional interfaces can be easily added via webhooks.
 
