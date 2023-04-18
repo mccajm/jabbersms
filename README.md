@@ -1,6 +1,6 @@
 # JabberSMS
 
-JabberSMS is an system for sending SMS via XMPP and email to and from a Bulk SMS HTTP API. It supports multiple numbers and multiple SMS providers. I have been using JabberSMS in production for 5 years, but do not provide any guarantees should you choose to do the same.
+JabberSMS is part of a Mobile VOIP system for sending SMS via XMPP and email to and from a Bulk SMS HTTP API. It supports multiple numbers and multiple SMS providers. I have been using JabberSMS in production for 5 years, but do not provide any guarantees should you choose to do the same.
 
 I wrote JabberSMS because I travel frequently, and need my numbers to work regardless of where I am. I have US and UK VOIP numbers, meaning I can be contacted as long as I have a data connection. Audio gets transcoded via Kamailio and rtpengine from G711 to opus to handle packet loss, and I use a Wireguard VPN for NAT Traversal. This takes care of mobile phone audio.
 
