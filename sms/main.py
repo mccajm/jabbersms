@@ -32,8 +32,7 @@ async def prefix_country(number):
     global digits
     if number[0] == 0:  # UK
         return f"44{number[1:]}"
-    
-    if len(number) == 5 and number[0] != 0:
+    elif len(number) == 5 and number[0] != 0:
         return f"44{number}"
 
     if len(number) == 10 and number[0] in digits[2:]:  # US
@@ -121,10 +120,12 @@ async def send_sms(request):
                              status_code=403)
 
     bodies = [message["body"]]
-    if len(message) > 153:
-        loop = asyncio.get_event_loop()
-        messages = await loop.run_in_executor(None, msgsplitter, message["body"])
+    # Uncomment if the SMS API doesn't support concatenated SMS
+    #if len(message) > 153:
+    #    loop = asyncio.get_event_loop()
+    #    messages = await loop.run_in_executor(None, msgsplitter, message["body"])
 
+    bodies_len = len(bodies)
     async for i, body in a.enumerate(bodies):
         message['to'] = to_number
         message['apikey'] = provider['apikey']
