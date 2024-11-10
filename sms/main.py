@@ -1,4 +1,5 @@
 import configparser
+import urllib.parse
 
 from itertools import accumulate
 
@@ -138,6 +139,7 @@ async def send_sms(request):
             print(f"Sending SMS chunk i/{bodies_len} {message['from']} -> {message['to']} via {provider['description']}")
             message["body"] = body
 
+        message["body"] = urllib.parse.quote_plus(message["body"])
         async with httpx.AsyncClient() as client:
             msg = provider['url'].format(**message)
             r = await client.get(msg)
